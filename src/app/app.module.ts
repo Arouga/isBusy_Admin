@@ -8,9 +8,8 @@ import { ToastrModule } from 'ngx-toastr';
 
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
-
+import { LocationsService } from '../app/services/locations.service';
 import { AppComponent } from './app.component';
-
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 
 @NgModule({
@@ -29,7 +28,9 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
     AdminLayoutComponent
 
   ],
-  providers: [],
+  providers: [
+      LocationsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
