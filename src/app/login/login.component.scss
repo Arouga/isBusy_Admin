@@ -1,0 +1,83 @@
+ /*
+  * Header
+  */
+  .masthead {
+    margin-bottom: 2rem;
+  }
+
+  .masthead-brand {
+    margin-bottom: 40px;
+  }
+
+  .nav-masthead .nav-link {
+    padding: .25rem 0;
+    font-weight: 700;
+    color: rgb(255, 196, 0);
+    background-color: transparent;
+    border-bottom: .25rem solid transparent;
+  }
+
+  .nav-masthead .nav-link:hover,
+  .nav-masthead .nav-link:focus {
+    border-bottom-color: rgb(255, 196, 0);
+  }
+
+  .nav-masthead .nav-link + .nav-link {
+    margin-left: 1rem;
+  }
+
+  .nav-masthead .active {
+    color: black;
+    border-bottom-color: black;
+  }
+
+  a:hover{
+      text-decoration:none;
+  }
+  .section-padding {
+    padding: 60px 0;
+  }
+  .bottom {
+      background-color: #0a1c2e;
+      margin-top: 100px;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      text-align: center;
+  }
+  .bottom .copyright {
+      color: #e5e5e5;
+      font-weight: 600;
+  }
+  .copyright a {
+      color: #f2ff49;
+      margin-left: 3px;
+      padding-right: 3px;
+  }
+  .bottom p {
+      margin-bottom: 0;
+      line-height: 50px;
+      font-size: 16px;
+      font-weight: 400;
+  }
+  .copyright p span {
+      color: #d1caca;
+  }
+  .bottom .copyright p, .bottom .copyright a:hover{
+      color: #6c6d83;
+  }
+
+  
+.login-input { position: relative; margin-bottom: -21px; font-size: 20px;}
+.login-input .form-control { background-color: #f4f7f9; padding-left: 35px; }
+
+
+  @media (min-width: 48em) {
+    .masthead-brand {
+      float: left;
+    }
+    .nav-masthead {
+      float: right;
+    }
+  }
+
