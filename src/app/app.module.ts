@@ -11,6 +11,8 @@ import { ComponentsModule } from './components/components.module';
 import { LocationsService } from '../app/services/locations.service';
 import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { IndexComponent } from './index/index.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   imports: [
@@ -25,7 +27,9 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
   ],
   declarations: [
     AppComponent,
-    AdminLayoutComponent
+    AdminLayoutComponent,
+    IndexComponent,
+    LoginComponent
 
   ],
   providers: [
