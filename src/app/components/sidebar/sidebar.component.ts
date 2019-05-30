@@ -10,7 +10,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/dashboard', title: 'Dashboard',  icon: 'design_app', class: '' },
     { path: '/icons', title: 'Emplacements',  icon:'location_map-big', class: '' },
     { path: '/table-list', title: 'Utilisateurs',  icon:'design_bullet-list-67', class: '' },
-    { path: '/notifications', title: 'Suggestions',  icon:'ui-1_bell-53', class: '' },
+    { path: '/notifications', title: 'Feedbacks',  icon:'ui-1_bell-53', class: '' },
 
     { path: '/user-profile', title: 'Mon profil',  icon:'users_single-02', class: '' },
     

@@ -1,27 +1,28 @@
+
+
 <div class="panel-header panel-header-sm">
 </div>
-<div class="main-content"  *ngFor="let user of personne.user">
+<div class="main-content"  *ngFor="let user of personne.users">
     <span *ngIf="user.id==1">
   <div class="row">
     <div class="col-md-8" >
       <div class="card">
-        <div class="card-header">     
-          <h5 class="title">Mon Profil</h5>
-          <input type="hidden" name="userId" [value]="user.id" >
-        </div>  
+        <div class="card-header" >
+          <h5 class="title">MOdifier mon Profil</h5>
+        </div>
         <div class="card-body">
           <form>
-            <div class="row">         
+            <div class="row">    
               <div class="col-md-3 px-1">
                 <div class="form-group">
                   <label>Username</label>
-                  <input type="text" class="form-control" [value]="user.username" disabled >
+                  <input type="text" class="form-control" required [value]="user.username"  >
                 </div>
               </div>
               <div class="col-md-4 pl-1">
                 <div class="form-group">
                   <label for="email">Email</label>
-                  <input name="email" id="email" type="email" class="form-control" [value]="user.email" disabled>
+                  <input name="email" id="email" type="email" class="form-control" required [value]="user.email" >
                 </div>
               </div>
             </div>
@@ -29,13 +30,13 @@
               <div class="col-md-6 pr-1">
                 <div class="form-group">
                   <label>Prénom</label>
-                  <input type="text" class="form-control"  [value]="user.prenom" disabled>
+                  <input type="text" class="form-control"  required [value]="user.prenom" >
                 </div>
               </div>
               <div class="col-md-6 pl-1">
                 <div class="form-group">
                   <label>Nom</label>
-                  <input type="text" class="form-control" [value]="user.nom" disabled>
+                  <input type="text" class="form-control" required [value]="user.nom" >
                 </div>
               </div>
             </div>
@@ -43,7 +44,7 @@
               <div class="col-md-12">
                 <div class="form-group">
                   <label>Adresse</label>
-                  <input type="text" class="form-control" [value]="user.adresse" disabled>
+                  <input type="text" class="form-control" required [value]="user.adresse" >
                 </div>
               </div>
             </div>
@@ -51,7 +52,7 @@
               <div class="col-md-4 pr-1">
                 <div class="form-group">
                   <label>Ville</label>
-                  <input type="text" class="form-control" [value]="user.ville" disabled>
+                  <input type="text" class="form-control" required [value]="user.ville" >
                 </div>
               </div>
             </div>
@@ -59,7 +60,8 @@
               <div class="col-md-12">
                 <div class="form-group">
                   <div class="row">
-                      <a routerLink="/editUserProfile"  class="btn btn-warning">Modifier</a>
+                    <button type="button" class="btn btn-warning" >Modifier</button>
+                    <button type="reset" class="btn btn-warning">Reset</button>
                   </div>
                 </div>
               </div>
@@ -67,7 +69,7 @@
           </form>
         </div>
       </div>
-    </div> 
+    </div>
   </div>
   </span>
 </div>
