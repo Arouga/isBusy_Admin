@@ -42,7 +42,7 @@
                       {{ item.nomEmplacement }}
                   </td>
                   <td>
-                    <button type="button"  (click)="Approuver(item.id)"  class="btn btn-warning">Approuver</button>
+                    <button type="button"  (click)="Approuver(item.id)"  (click)="showNotification('top','left')" class="btn btn-warning">Approuver</button>
                   </td>
                   <td>
                     <button type="button" (click)="Ignorer(item.id)"  (click)="showNotificationI('top','left')" class="btn btn-warning">Ignorer</button>

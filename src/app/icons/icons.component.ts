@@ -39,6 +39,8 @@ export class IconsComponent implements OnInit {
       }}},
       stats:null
   };
+  username:'';
+  password:'';
  /*locations= {
     user:null,
     message:'',
@@ -60,30 +62,24 @@ export class IconsComponent implements OnInit {
   }
   };*/
 
-  constructor(private locationsService: LocationsService,private toastr: ToastrService) {
+  constructor(private locationsService: LocationsService,private toastr: ToastrService)
+   {
   
-      locationsService.getLocations().subscribe(res => {
-        console.log(res);
+      locationsService.getEmplacements().subscribe(res => {
         this.locations = res;
       }, err =>{
         console.log(err);
-  
-  
-      } )
-   
-   
-    
-    
+      } ) 
   }
   Approuver(id){
-    //changer le status va prendre 1
-    this.locationsService.approveLocation(id).subscribe();
+
+    this.locationsService.approveEmplacement(id).subscribe();
 
   }
   Ignorer(id){ 
-    //changer le status va prendre 2
+   
     
-    this.locationsService.ignoreLocation(id).subscribe();
+    this.locationsService.ignoreEmplacement(id).subscribe();
 
 
   }
