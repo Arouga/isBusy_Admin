@@ -17,14 +17,14 @@ const routes: Routes =[
     canActivate: [BeforeLoginGuard]
   },
   {
-    path: 'dashboard',
+    path: '',
     component: AdminLayoutComponent,
     children: [
       {
         path: '',
         loadChildren: './layouts/admin-layout/admin-layout.module#AdminLayoutModule'
       }
-    ],
+    ], 
     canActivate: [AfterLoginGuard]
   },
   {
@@ -42,6 +42,7 @@ const routes: Routes =[
     redirectTo: 'index',
     canActivate: [BeforeLoginGuard]
   }
+  
 ];
 
 @NgModule({

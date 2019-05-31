@@ -6,21 +6,19 @@ import { catchError, tap } from 'rxjs/operators';
 import { TokenService } from './token.service';
 import { Router } from '@angular/router';
 import { User } from '../models/User';
+import { environment } from './../../environments/environment';
 
 const httpOptions = {
 	headers: new HttpHeaders({
 		'Content-Type': 'application/json'
- 	})
+	})
 };
 
 @Injectable({
 	providedIn: 'root'
 })
 export class UserService {
-	
-	loginUserUrl: string = 'ooo';
-	logoutUserUrl: string = '';
-	getUserUrl: string = '';
+
 
 	// Holds the validation errors coming from the server
 	errorResp: HttpErrorResponse = null;
@@ -28,7 +26,7 @@ export class UserService {
 	// Holds if the user is logged in or not
 	private loggedIn = new BehaviorSubject<boolean>(this._tokenService.isTokenValid());
 	authStatus = this.loggedIn.asObservable();
-	
+
 	/**
 	 * Creates an instance of user service.
 	 * @param http 
@@ -48,35 +46,38 @@ export class UserService {
 
 
 
-	
+
 
 	/**
 	 * Logins server side
 	 * @param form 
 	 * @returns server$
 	 */
-	loginServer(form: FormGroup): Observable<User> {
-		console.log(`userService => trying to loginServer : `, form.value);
+	loginServer(data): Observable<User> {
+		console.log(`userService => trying to loginServer : `, data);
 
-		return this.http.post(this.loginUserUrl, form.value, httpOptions).pipe(
-			tap((user: User) => console.log(`userService => logged user = `, user)),
-			catchError(this.handleError(`userService => user not logged in`, null))
-		);
+		var username = data.username;
+        var password = data.motDePasse;
+        var all = username + ':' + password;
+        var all_crypted = btoa(all);
+
+        let myHeaders: HttpHeaders = new HttpHeaders();
+        myHeaders = myHeaders.append('Authorization', 'Basic ' + all_crypted);
+        return this.http.get(environment.api + '/users/me', { headers: myHeaders, withCredentials: true });
+
 	}
-	
+
 	/**
 	 * Logins client side
 	 * @param user 
 	 */
-	loginClient(user: User): void{
-
-		this.router.navigateByUrl('/dashboard');
-
-		this._tokenService.handle(user.access_token);
+	loginClient(user: User): void {
 
 		this.changeAuthStatus(true);
+		localStorage.setItem('user_info', user.email);
+		this.router.navigateByUrl('/dashboard');
 	}
-	
+
 	/**
 	 * Changes auth status
 	 * @param value 
@@ -99,7 +100,7 @@ export class UserService {
 	logoutServer(): Observable<User> {
 		console.log(`userService => trying to logoutServer`);
 
-		return this.http.get(this.logoutUserUrl).pipe(
+		return this.http.get(environment.api + '/').pipe(
 			tap((user: User) => console.log(`userService => logout user = `, user)),
 			catchError(this.handleError(`userService => user not logout`, null))
 		);
@@ -130,16 +131,15 @@ export class UserService {
 	 * Gets user from server side
 	 * @returns user$
 	 */
-	getUserServer(): Observable<User>{
+	getUserServer(): Observable<User> {
 		console.log(`userService => trying to getUser`);
-		
-		return this.http.get<User>(this.getUserUrl).pipe(
-				tap((user: User) => console.log(`userService => got user = `, user)),
-				catchError(this.handleError(`userService => user not got`, null))
-			);
+
+		return this.http.get<User>(environment.api + '/').pipe(
+			tap((user: User) => console.log(`userService => got user = `, user)),
+			catchError(this.handleError(`userService => user not got`, null))
+		);
 	}
 
-	
 
 
 
@@ -147,28 +147,29 @@ export class UserService {
 
 
 
-	
 
 
 
 
 
-	
+
+
+
 	/**
 	 * Gets error response
 	 * @returns error response 
 	 */
-	public getErrorResponse(): HttpErrorResponse{
+	public getErrorResponse(): HttpErrorResponse {
 		return this.errorResp;
 	}
-	
+
 	/**
 	 * Handle Http operation that failed.
 	 * Let the app continue.
 	 * @param operation - name of the operation that failed
 	 * @param result - optional value to return as the observable result
 	 */
-	private handleError<T> (operation = 'operation', result?: T) {
+	private handleError<T>(operation = 'operation', result?: T) {
 		return (error: HttpErrorResponse): Observable<T> => {
 
 			console.error(`\n ${operation} failed : ${error.message}`);

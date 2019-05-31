@@ -5,14 +5,18 @@ import { Observable } from 'rxjs';
 import { TokenService } from '../services/token.service';
 
 @Injectable({
-  	providedIn: 'root'
+	providedIn: 'root'
 })
 
 export class AfterLoginGuard implements CanActivate {
 
 	path: ActivatedRouteSnapshot[];
 	route: ActivatedRouteSnapshot;
-	
+
+	result: any = [];
+	key: string = 'user_info';
+
+
 	/**
 	 * Creates an instance of after login guard 
 	 * @param _tokenService 
@@ -22,17 +26,21 @@ export class AfterLoginGuard implements CanActivate {
 		private router: Router,
 		private _tokenService: TokenService
 	) { }
-	
+
 	canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot):
-		boolean | Observable<boolean> | Promise<boolean>  {
-
-		// if the user's token is valid
-		if(this._tokenService.isTokenValid()) {
-			return true;
-		}
-
-		this.router.navigateByUrl('/index');
-		return false;
+		boolean | Observable<boolean> | Promise<boolean> {
+		return new Promise((resolve, reject) => {
+			const val = localStorage.getItem(this.key);
+			console.log('After' +val);
+			
+			if (val != null && val != undefined) {
+				resolve(true);
+			} else {
+				console.log("There is no name stored");
+				this.router.navigateByUrl('/login');
+				resolve(false);
+			}
+		});
 	}
 
 }
