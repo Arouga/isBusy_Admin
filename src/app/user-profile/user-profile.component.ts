@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../services/user.service';
+import { AuthenticationService } from '../services/authentication.service';
+import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-user-profile',
@@ -6,10 +10,40 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-profile.component.css']
 })
 export class UserProfileComponent implements OnInit {
+  user:
+    {
+      id: null,
+      nom: '',
+      prenom: '',
+      username: '',
+      motDePasse: '',
+      email: '',
+      adresse: '',
+      ville: '',
+      active: null,
+      roles: [],
+      enabled: true,
+      password: '',
+      authorities: [],
+      accountNonExpired: true,
+      accountNonLocked: true,
+      credentialsNonExpired: true
+    };
 
-  constructor() { }
 
-  ngOnInit() {
+  constructor(private userService: UserService, private toastr: ToastrService) {
+
+    this.userService.getProfile().subscribe(res => {
+      console.log(res);
+      this.user = res.user;
+    }, err => {
+      console.log(err);
+
+
+    });
   }
 
+  ngOnInit() {
+
+  }
 }

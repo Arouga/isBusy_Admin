@@ -22,4 +22,8 @@ describe('IndexComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+<<<<<<< HEAD
 });
+=======
+});
+>>>>>>> 064b07dea3c3aacf13a67cf4ff2f3ae015b32c5a

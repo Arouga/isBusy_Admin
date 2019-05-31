@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LoginComponent } from './login.component';
+import { EditUserProfileComponent } from './edit-user-profile.component';
 
-describe('LoginComponent', () => {
-  let component: LoginComponent;
-  let fixture: ComponentFixture<LoginComponent>;
+describe('EditUserProfileComponent', () => {
+  let component: EditUserProfileComponent;
+  let fixture: ComponentFixture<EditUserProfileComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LoginComponent ]
+      declarations: [ EditUserProfileComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LoginComponent);
+    fixture = TestBed.createComponent(EditUserProfileComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -22,8 +22,4 @@ describe('LoginComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-<<<<<<< HEAD
 });
-=======
-});
->>>>>>> 064b07dea3c3aacf13a67cf4ff2f3ae015b32c5a

@@ -8,6 +8,7 @@ import { IndexComponent } from './index/index.component';
 import { LoginComponent } from './login/login.component';
 import { BeforeLoginGuard } from './guards/before-login.guard';
 import { AfterLoginGuard } from './guards/after-login.guard';
+import { EditUserProfileComponent } from './edit-user-profile/edit-user-profile.component';
 
 const routes: Routes =[
   {
@@ -31,6 +32,11 @@ const routes: Routes =[
     path: 'login',
     component: LoginComponent,
     canActivate: [BeforeLoginGuard]
+  },
+  
+  {
+    path: 'editUserProfile/:id',
+    component: EditUserProfileComponent
   },
   {
     path: 'index',

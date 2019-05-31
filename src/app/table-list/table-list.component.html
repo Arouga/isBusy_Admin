@@ -1,171 +1,46 @@
 <div class="panel-header panel-header-sm">
 </div>
-<div class="main-content">
+<div class="main-content"   >
   <div class="row">
     <div class="col-md-12">
       <div class="card">
         <div class="card-header">
-          <h4 class="card-title"> Simple Table</h4>
+          <h4 class="card-title"> Liste Utilisateurs</h4>
         </div>
         <div class="card-body">
           <div class="table-responsive">
             <table class="table">
               <thead class=" text-primary">
                 <th>
-                  Categorie
+                  Username
                 </th>
                 <th>
-                  Latitude
+                  Nom
                 </th>
                 <th>
-                  Longitude
+                  Prenom
                 </th>
                 <th class="text-right">
-                  Nom d'emplacement
+                  Email
                 </th>
                 <th></th>
                 <th></th>
               </thead>
-              <tbody>
+              <tbody *ngFor="let user of personne.users">
                 <tr>
                   <td>
-                    Dakota Rice
+                    {{user.username}}
                   </td>
                   <td>
-                    Niger
+                      {{user.nom}}
                   </td>
                   <td>
-                    Oud-Turnhout
+                      {{user.prenom}}
                   </td>
                   <td class="text-right">
-                    $36,738
+                      {{user.email}}
                   </td>
-                  <td>
-                    <button>Approuver</button>
-                  </td>
-                  <td>
-                    <button>Ignorer</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    Minerva Hooper
-                  </td>
-                  <td>
-                    Curaçao
-                  </td>
-                  <td>
-                    Sinaai-Waas
-                  </td>
-                  <td class="text-right">
-                    $23,789
-                  </td>
-                  <td>
-                    <button>Approuver</button>
-                  </td>
-                  <td>
-                    <button>Ignorer</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    Sage Rodriguez
-                  </td>
-                  <td>
-                    Netherlands
-                  </td>
-                  <td>
-                    Baileux
-                  </td>
-                  <td class="text-right">
-                    $56,142
-                  </td>
-                  <td>
-                    <button>Approuver</button>
-                  </td>
-                  <td>
-                    <button>Ignorer</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    Philip Chaney
-                  </td>
-                  <td>
-                    Korea, South
-                  </td>
-                  <td>
-                    Overland Park
-                  </td>
-                  <td class="text-right">
-                    $38,735
-                  </td>
-                  <td>
-                    <button>Approuver</button>
-                  </td>
-                  <td>
-                    <button>Ignorer</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    Doris Greene
-                  </td>
-                  <td>
-                    Malawi
-                  </td>
-                  <td>
-                    Feldkirchen in Kärnten
-                  </td>
-                  <td class="text-right">
-                    $63,542
-                  </td>
-                  <td>
-                    <button>Approuver</button>
-                  </td>
-                  <td>
-                    <button>Ignorer</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    Mason Porter
-                  </td>
-                  <td>
-                    Chile
-                  </td>
-                  <td>
-                    Gloucester
-                  </td>
-                  <td class="text-right">
-                    $78,615
-                  </td>
-                  <td>
-                    <button>Approuver</button>
-                  </td>
-                  <td>
-                    <button>Ignorer</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    Jon Porter
-                  </td>
-                  <td>
-                    Portugal
-                  </td>
-                  <td>
-                    Gloucester
-                  </td>
-                  <td class="text-right">
-                    $98,615
-                  </td>
-                  <td>
-                    <button>Approuver</button>
-                  </td>
-                  <td>
-                    <button>Ignorer</button>
-                  </td>
+                
                 </tr>
               </tbody>
             </table>
