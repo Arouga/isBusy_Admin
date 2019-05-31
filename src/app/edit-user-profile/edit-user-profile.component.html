@@ -1,28 +1,46 @@
-
-
 <div class="panel-header panel-header-sm">
 </div>
-<div class="main-content"  *ngFor="let user of personne.users">
-    <span *ngIf="user.id==1">
+<div class="main-content">
   <div class="row">
-    <div class="col-md-8" >
+    <div class="col-md-8">
       <div class="card">
-        <div class="card-header" >
-          <h5 class="title">MOdifier mon Profil</h5>
+        <div class="card-header">
+          <h5 class="title">Modifier mon Profil</h5>
         </div>
+
         <div class="card-body">
-          <form>
-            <div class="row">    
+          <form [formGroup]="editProfileForm" (ngSubmit)="editProfile()">
+
+            <div *ngIf="error" class="row">
+              <div class="col-md-8 px-1">
+                <div class="alert alert-danger">
+                  {{error}}
+                </div>
+
+              </div>
+
+            </div>
+            <div *ngIf="success" class="row">
+              <div class="col-md-8 px-1">
+
+                <div *ngIf="success" class="alert alert-success">
+                  {{success}}
+                </div>
+              </div>
+
+            </div>
+
+            <div class="row">
               <div class="col-md-3 px-1">
                 <div class="form-group">
                   <label>Username</label>
-                  <input type="text" class="form-control" required [value]="user.username"  >
+                  <input type="text" class="form-control" formControlName="username">
                 </div>
               </div>
               <div class="col-md-4 pl-1">
                 <div class="form-group">
                   <label for="email">Email</label>
-                  <input name="email" id="email" type="email" class="form-control" required [value]="user.email" >
+                  <input name="email" id="email" type="email" class="form-control" formControlName="email">
                 </div>
               </div>
             </div>
@@ -30,13 +48,13 @@
               <div class="col-md-6 pr-1">
                 <div class="form-group">
                   <label>Prénom</label>
-                  <input type="text" class="form-control"  required [value]="user.prenom" >
+                  <input type="text" class="form-control" formControlName="prenom">
                 </div>
               </div>
               <div class="col-md-6 pl-1">
                 <div class="form-group">
                   <label>Nom</label>
-                  <input type="text" class="form-control" required [value]="user.nom" >
+                  <input type="text" class="form-control" formControlName="nom">
                 </div>
               </div>
             </div>
@@ -44,7 +62,7 @@
               <div class="col-md-12">
                 <div class="form-group">
                   <label>Adresse</label>
-                  <input type="text" class="form-control" required [value]="user.adresse" >
+                  <input type="text" class="form-control" formControlName="adresse">
                 </div>
               </div>
             </div>
@@ -52,7 +70,10 @@
               <div class="col-md-4 pr-1">
                 <div class="form-group">
                   <label>Ville</label>
-                  <input type="text" class="form-control" required [value]="user.ville" >
+                  <select formControlName="ville" class="form-control">
+                    <option *ngFor="let city of villes" [value]="city" [selected]="city == editProfileForm.value.ville">
+                      {{city}}</option>
+                  </select>
                 </div>
               </div>
             </div>
@@ -60,7 +81,7 @@
               <div class="col-md-12">
                 <div class="form-group">
                   <div class="row">
-                    <button type="button" class="btn btn-warning" >Modifier</button>
+                    <button type="submit" class="btn btn-warning">Modifier</button>
                     <button type="reset" class="btn btn-warning">Reset</button>
                   </div>
                 </div>
@@ -71,5 +92,4 @@
       </div>
     </div>
   </div>
-  </span>
 </div>

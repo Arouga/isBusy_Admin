@@ -1,6 +1,6 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -24,6 +24,7 @@ import { EditUserProfileComponent } from './edit-user-profile/edit-user-profile.
     ComponentsModule,
     RouterModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     NgbModule,
     ToastrModule.forRoot()
   ],
@@ -37,7 +38,8 @@ import { EditUserProfileComponent } from './edit-user-profile/edit-user-profile.
   ],
   providers: [
     UserService,
-    LocationsService
+    LocationsService,
+    FormBuilder
   ],
   bootstrap: [AppComponent]
 })

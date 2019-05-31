@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-table-list',
@@ -30,18 +31,18 @@ export class TableListComponent implements OnInit {
     }
   };
 
-  constructor(userService : UserService) {
-    userService.getUsers('ali','ali').subscribe(
-      res => {
-            console.log(res);
-            this.personne = res;
-      }, 
-      
-      err => {
-            console.log(err);
-      }
-    )
- }
+
+ constructor(private userService: UserService, private toastr: ToastrService) {
+
+  userService.getListeUsers().subscribe(res => {
+    console.log(res);
+    this.personne = res;
+  }, err => {
+    console.log(err);
+
+
+  });
+}
 
 ngOnInit() {
 

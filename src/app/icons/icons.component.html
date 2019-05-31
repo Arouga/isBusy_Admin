@@ -28,24 +28,24 @@
                 <th></th>
               </thead>
               <tbody>
-                <tr *ngFor="let item of locations">
-                  <td>
-                      {{ item.name }}
+                <tr *ngFor="let item of locations.emplacements">
+                  <td> 
+                      {{ item.categorie }}
                   </td>
                   <td class="text-right">
-                      {{ item.id }}
+                      {{ item.latitude }}
                   </td>
                   <td class="text-right">
-                      {{ item.username }}
+                      {{ item.longitude }}
                   </td>
                   <td >
-                      {{ item.email }}
+                      {{ item.nomEmplacement }}
                   </td>
                   <td>
-                    <button type="button" class="btn btn-warning">Approuver</button>
+                    <button type="button"  (click)="Approuver(item.id)"  class="btn btn-warning">Approuver</button>
                   </td>
                   <td>
-                    <button type="button" class="btn btn-warning">Ignorer</button>
+                    <button type="button" (click)="Ignorer(item.id)"  (click)="showNotificationI('top','left')" class="btn btn-warning">Ignorer</button>
                   </td>
                 </tr>
               </tbody>

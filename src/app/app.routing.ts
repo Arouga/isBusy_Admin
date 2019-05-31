@@ -11,7 +11,7 @@ import { EditUserProfileComponent } from './edit-user-profile/edit-user-profile.
 const routes: Routes =[
   {
     path: '',
-    redirectTo: 'dashboard',
+    redirectTo: 'index',
     pathMatch: 'full',
   }, {
     path: '',
@@ -36,7 +36,7 @@ const routes: Routes =[
   },
   {
     path: '**',
-    redirectTo: 'dashboard'
+    redirectTo: 'index'
   }
 ];
 
