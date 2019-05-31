@@ -6,31 +6,41 @@ import { Routes, RouterModule } from '@angular/router';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { IndexComponent } from './index/index.component';
 import { LoginComponent } from './login/login.component';
+import { BeforeLoginGuard } from './guards/before-login.guard';
+import { AfterLoginGuard } from './guards/after-login.guard';
 
 const routes: Routes =[
   {
     path: '',
     redirectTo: 'index',
     pathMatch: 'full',
-  }, {
-    path: '',
+    canActivate: [BeforeLoginGuard]
+  },
+  {
+    path: 'dashboard',
     component: AdminLayoutComponent,
     children: [
-        {
-      path: '',
-      loadChildren: './layouts/admin-layout/admin-layout.module#AdminLayoutModule'
-  }]},
+      {
+        path: '',
+        loadChildren: './layouts/admin-layout/admin-layout.module#AdminLayoutModule'
+      }
+    ],
+    canActivate: [AfterLoginGuard]
+  },
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
+    canActivate: [BeforeLoginGuard]
   },
   {
     path: 'index',
-    component: IndexComponent
+    component: IndexComponent,
+    canActivate: [BeforeLoginGuard]
   },
   {
     path: '**',
-    redirectTo: 'index'
+    redirectTo: 'index',
+    canActivate: [BeforeLoginGuard]
   }
 ];
 
