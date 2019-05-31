@@ -1,53 +1,47 @@
 <div class="panel-header panel-header-sm">
 </div>
-<div class="main-content">
+<div class="main-content"   >
   <div class="row">
     <div class="col-md-12">
       <div class="card">
         <div class="card-header">
-          <h4 class="card-title"> Simple Table</h4>
+          <h4 class="card-title"> Liste Utilisateurs</h4>
         </div>
         <div class="card-body">
           <div class="table-responsive">
             <table class="table">
               <thead class=" text-primary">
                 <th>
-                  Categorie
+                  Username
                 </th>
                 <th>
-                  Latitude
+                  Nom
                 </th>
                 <th>
-                  Longitude
+                  Prenom
                 </th>
                 <th class="text-right">
-                  Nom d'emplacement
+                  Email
                 </th>
                 <th></th>
                 <th></th>
               </thead>
-              <tbody>
+              <tbody *ngFor="let user of personne.users">
                 <tr>
                   <td>
-                    Dakota Rice
+                    {{user.username}}
                   </td>
                   <td>
-                    Niger
+                      {{user.nom}}
                   </td>
                   <td>
-                    Oud-Turnhout
+                      {{user.prenom}}
                   </td>
                   <td class="text-right">
-                    $36,738
+                      {{user.email}}
                   </td>
-                  <td>
-                    <button>Approuver</button>
-                  </td>
-                  <td>
-                    <button>Ignorer</button>
-                  </td>
+                
                 </tr>
-              
               </tbody>
             </table>
           </div>
