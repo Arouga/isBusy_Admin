@@ -101,21 +101,17 @@ export class UserService {
 	logoutServer(): Observable<User> {
 		console.log(`userService => trying to logoutServer`);
 
-		return this.http.get(environment.api + '/').pipe(
-			tap((user: User) => console.log(`userService => logout user = `, user)),
-			catchError(this.handleError(`userService => user not logout`, null))
-		);
+		return this.http.get(environment.api + '/login?logout');
+
 	}
 
 	/**
 	 * Logouts client side
 	 */
 	logoutClient(): void {
-		this.router.navigateByUrl('/home');
-
-		this._tokenService.remove();
-
 		this.changeAuthStatus(false);
+		localStorage.clear();
+		this.router.navigateByUrl('/login');
 	}
 
 

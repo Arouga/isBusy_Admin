@@ -1,9 +1,13 @@
 <div class="panel-header panel-header-sm">
+    <button class="btn btn-primary" style="margin-left:1039px" onclick="window.history.go(-1)">
+        <span class="spinner-grow spinner-grow-sm"></span>
+        Retour au Tableau de Bord
+      </button>
 </div>
 <div class="main-content">
   <div class="row">
     <div class="col-md-8">
-      <div class="card">
+      <div class="card" style="padding: 19px;margin-left: 250px;">
         <div class="card-header">
           <h5 class="title">Modifier mon Profil</h5>
         </div>
@@ -16,28 +20,25 @@
                 <div class="alert alert-danger">
                   {{error}}
                 </div>
-
               </div>
-
             </div>
+
             <div *ngIf="success" class="row">
               <div class="col-md-8 px-1">
-
                 <div *ngIf="success" class="alert alert-success">
                   {{success}}
                 </div>
               </div>
-
             </div>
 
             <div class="row">
-              <div class="col-md-3 px-1">
+              <div class="col-md-6 px-1">
                 <div class="form-group">
                   <label>Username</label>
                   <input type="text" class="form-control" formControlName="username">
                 </div>
               </div>
-              <div class="col-md-4 pl-1">
+              <div class="col-md-6 pl-1">
                 <div class="form-group">
                   <label for="email">Email</label>
                   <input name="email" id="email" type="email" class="form-control" formControlName="email">
@@ -67,7 +68,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-md-4 pr-1">
+              <div class="col-md-12 pr-1">
                 <div class="form-group">
                   <label>Ville</label>
                   <select formControlName="ville" class="form-control">
@@ -76,14 +77,14 @@
                   </select>
                 </div>
               </div>
-            </div>
+            </div> <br> <br>
             <div class="row">
-              <div class="col-md-12">
+              <div class="col-lg-12">
                 <div class="form-group">
-                  <div class="row">
-                    <button type="submit" class="btn btn-warning">Modifier</button>
-                    <button type="reset" class="btn btn-warning">Reset</button>
-                  </div>
+                  
+                    <button type="submit" class="btn btn-warning btn-lg" style="width: 470px">Modifier</button>
+                    <button type="reset" class="btn btn-warning btn-lg" style="width: 470px">Reset</button>
+                 
                 </div>
               </div>
             </div>

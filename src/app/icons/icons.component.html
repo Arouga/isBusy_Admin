@@ -2,13 +2,13 @@
 </div>
 <div class="main-content">
   <div class="row">
-    <div class="col-md-12">
-      <div class="card">
+    <div class="col-md-12" >
+      <div class="card" >
         <div class="card-header">
           <h4 class="card-title"> Emplacements Suggérés</h4>
         </div>
         <div class="card-body">
-          <div class="table-responsive">
+          <div class="table-responsive"  style="overflow-y:auto;">
             
             <table class="table">
               <thead class=" text-primary">
@@ -42,10 +42,10 @@
                       {{ item.nomEmplacement }}
                   </td>
                   <td>
-                    <button type="button"  (click)="Approuver(item.id)"  (click)="showNotification('top','left')" class="btn btn-warning">Approuver</button>
+                    <button type="button"  (click)="Approuver(item.id)"  (click)="showNotification('top','left')" class="btn btn-warning" onClick="window.location.reload();">Approuver</button>
                   </td>
                   <td>
-                    <button type="button" (click)="Ignorer(item.id)"  (click)="showNotificationI('top','left')" class="btn btn-warning">Ignorer</button>
+                    <button type="button" (click)="Ignorer(item.id)"  (click)="showNotificationI('top','left')" class="btn btn-warning"  onClick="window.location.reload();">Ignorer</button>
                   </td>
                 </tr>
               </tbody>

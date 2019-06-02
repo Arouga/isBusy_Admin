@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { StatsService } from '../services/stats.service';
+import { ToastrService } from 'ngx-toastr';
 import * as Chartist from 'chartist';
 
 @Component({
@@ -6,6 +8,7 @@ import * as Chartist from 'chartist';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
+
 export class DashboardComponent implements OnInit {
   public lineBigDashboardChartType;
   public gradientStroke;
@@ -57,9 +60,33 @@ export class DashboardComponent implements OnInit {
       return "rgb(" + r + ", " + g + ", " + b + ")";
     }
   }
-  constructor() { }
 
-  ngOnInit() {
+  stats={
+    nombreUsers:null,
+    nombreVotes:null,
+    message:'',
+    status:null,
+    emplacementsParCategorie:[[]]
+
+  };
+  empl:any[] = [];
+
+  constructor(private locationsService: StatsService,private toastr: ToastrService) { }
+
+  ngOnInit() :void {
+
+    this.locationsService.getStats().subscribe(res => {
+      this.stats = res;
+      for (let index = 0; index < this.stats.emplacementsParCategorie.length; index++) {
+        const elt: any[] = this.stats.emplacementsParCategorie[index];
+         this.empl.push(elt);
+      }
+    }, err =>{
+      console.log(err);
+    } ) 
+
+
+
     this.chartColor = "#FFFFFF";
     this.canvas = document.getElementById("bigDashboardChart");
     this.ctx = this.canvas.getContext("2d");
@@ -406,4 +433,7 @@ export class DashboardComponent implements OnInit {
 
     this.lineChartGradientsNumbersType = 'bar';
   }
+
+  
+  
 }

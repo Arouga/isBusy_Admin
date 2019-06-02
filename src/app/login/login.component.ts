@@ -1,19 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , ViewChild, ElementRef} from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { TokenService } from '../services/token.service';
 import { UserService } from '../services/user.service';
+import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
 	selector: 'app-login',
 	templateUrl: './login.component.html',
 	styleUrls: ['./login.component.scss']
+	
+ 
 })
 export class LoginComponent implements OnInit {
 
 	constructor(
 		private fb: FormBuilder,
 		private _tokenService: TokenService,
-		private _userService: UserService
+		private _userService: UserService,
+		private toastr: ToastrService
 
 	) { }
 
@@ -52,7 +57,7 @@ export class LoginComponent implements OnInit {
 						this._userService.loginClient(user);
 					}
 					else {
-						this.loginErrorMsg = 'Email ou mot de passe invalide';
+						this.loginErrorMsg = 'showNotification("top","left")';
 						this.cleanLoginPwd();
 					}
 				},
@@ -69,5 +74,19 @@ export class LoginComponent implements OnInit {
 			motDePasse: ''
 		});
 	}
+
+
+	showNotification(from, align){
+
+		const color = Math.floor((Math.random() * 5) + 1);
+	
+		  this.toastr.info('<span class="now-ui-icons ui-1_bell-53"></span> Mot de passe ou Username <b>invalide</b>', '', {
+			 timeOut: 8000,
+			 closeButton: true,
+			 enableHtml: true,
+			 toastClass: "alert alert-danger alert-with-icon",
+			 positionClass: 'toast-' + from + '-' +  align
+		   });
+		}
 
 }

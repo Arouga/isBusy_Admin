@@ -35,10 +35,14 @@
       text-decoration:none;
   }
   .section-padding {
-    padding: 60px 0;
+    padding: 33px 0;
   }
   .bottom {
-      background-color: #0a1c2e;
+    background-color: #0a1c2e;
+    position: fixed;
+    left: 0;
+    width: 100%;
+    text-align: center;
   }
   .bottom .copyright {
       color: #e5e5e5;

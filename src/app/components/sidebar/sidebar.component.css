@@ -1,0 +1,11 @@
+#logout_sidebar_button {
+    position: absolute;
+    display: inline-block;
+    bottom: 0;
+    left: 25px;
+    font-size: 18px;
+}
+.logout_sidebar_button :hover{
+    background-color: rgba(255, 255, 255, 0.651);
+}
+

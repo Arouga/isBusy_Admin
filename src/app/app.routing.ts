@@ -36,7 +36,8 @@ const routes: Routes =[
   
   {
     path: 'editUserProfile/:id',
-    component: EditUserProfileComponent
+    component: EditUserProfileComponent,
+    
   },
   {
     path: 'index',

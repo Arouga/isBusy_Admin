@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import {UserService} from '../../services/user.service';
+
 declare interface RouteInfo {
     path: string;
     title: string;
@@ -13,9 +15,10 @@ export const ROUTES: RouteInfo[] = [
     { path: '/notifications', title: 'Feedbacks',  icon:'ui-1_bell-53', class: '' },
 
     { path: '/user-profile', title: 'Mon profil',  icon:'users_single-02', class: '' },
+    
 
 
-    { path: '/upgrade', title: 'Déconnexion',  icon:'objects_spaceship', class: 'active active-pro' }
+  /*  { path: '/upgrade', title: 'Déconnexion',  icon:'objects_spaceship', class: 'active active-pro' } */
 
 ];
 
@@ -38,4 +41,23 @@ export class SidebarComponent implements OnInit {
       }
       return true;
   };
+
+ /* 
+  logout(){
+    this.userService.logoutServer()
+    .subscribe(
+      (user) => {
+        if (user != null) {
+          this.userService.logoutClient();
+        }
+        
+      },
+      (error) => {
+        console.error(error);
+        this.userService.logoutClient();
+      }
+    );
+
+  }
+  */
 }

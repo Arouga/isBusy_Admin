@@ -1,31 +1,42 @@
 
-
-<div class="container" >
-
-    <header class="masthead mb-auto">
+<div class="container" style="margin-top:30px;">
+    <header class="masthead mb-auto" style="z-index:1000 ">
         <div class="inner">
           <h3 class="masthead-brand">isBusy</h3>
           <nav class="nav nav-masthead justify-content-center">
             <a class="nav-link "  routerLinkActive="active"   routerLink="index">Home</a>
-            <a class="nav-link active"  routerLinkActive="active" routerLink="login" >CONNEXION</a>
+            <a class="nav-link active"  routerLinkActive="active" routerLink="/login" >CONNEXION</a>
           </nav>
         </div>
       </header>
 
-  <div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel" style="margin-top:10px">
+    
+</div>
+
+
+
+
+<div class="container" >
+  <div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel"  style="top:20px; margin-bottom: 229px;z-index:500;">
     <div class="carousel-inner">
       <div class="carousel-item active">
         <div class="mask flex-center">
           <div class="container">
-            <div class="row align-items-center" style="margin-top:150px ; margin-bottom: 20px;">
+            <div class="row align-items-center" style="margin-top:70px">
               <div class="col-md-6 col-12 order-md-1 order-2">
-                <img src="assets/img/isBusy2.png" alt="" width="250px"> <br> <br> <br>
+                <img src="assets/img/isBusy2.png" alt="" width="250px"> 
                 </div>
-              <div class="col-md-6 col-10 order-md-2 order-1">
-                  <a style="font-size: 20px" href="#">ESPACE  <a href="#"> <strong>ADMIN</strong></a> </a>  <br> <br> <br>
+
+              <div class="col-md-6 col-10 order-md-2 order-1"> 
+                
+                  <p style="font-size: 24px" href="#">ESPACE <strong>ADMIN</strong> <span class="spinner-grow spinner-grow-sm"></span></p>  
                 <!-- form -->
                 <p class="text-danger"></p>
                 <form [formGroup]="loginForm" (ngSubmit)="submitLoginForm()" >
+
+                    
+
+
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="form-group">
                             <label class="control-label sr-only" for="username"></label>
@@ -43,9 +54,9 @@
                         </div>
                     </div> <br> <br> <br>
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mb20 ">
-                        <button class="btn btn-primary btn-block mb10">Connexion</button>
-                        <div>
-                        </div>
+                        <button class="btn btn-warning btn-block mb10" (click)="showNotification('top','left')">Connexion</button>
+                        
+                        
                     </div>
                 </form>
 
@@ -55,26 +66,21 @@
           </div>
         </div>
       </div>
-      
     </div>
+  </div>
+</div>
 
     <!--slide end--> 
 
 
 
-</div>
-
-<br> <br>
-<!--Bottom Footer-->
+ <!--Bottom Footer-->
 <div class="bottom section-padding">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12 text-center">
-          <div class="copyright">
-            <p>© <span>2019</span> <a href="#" class="transition"> isBusy</a> All rights reserved.</p>
-          </div>
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <div class="copyright">
+          <p>© <span>2019</span> <a href="#" class="transition"> isBusy</a> All rights reserved.</p>
         </div>
       </div>
-    
-  </div>
+</div>
 <!--Bottom Footer-->

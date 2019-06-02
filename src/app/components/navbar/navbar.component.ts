@@ -2,7 +2,7 @@ import { Component, OnInit, ElementRef } from '@angular/core';
 import { ROUTES } from '../sidebar/sidebar.component';
 import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
 import { Router } from '@angular/router';
-import Chart from 'chart.js';
+import {UserService} from '../../services/user.service';
 
 @Component({
   selector: 'app-navbar',
@@ -18,7 +18,7 @@ export class NavbarComponent implements OnInit {
 
     public isCollapsed = true;
 
-    constructor(location: Location,  private element: ElementRef, private router: Router) {
+    constructor(location: Location,  private element: ElementRef, private router: Router,private userService: UserService) {
       this.location = location;
           this.sidebarVisible = false;
     }
@@ -138,6 +138,8 @@ export class NavbarComponent implements OnInit {
         }
     };
 
+
+
     getTitle(){
       var titlee = this.location.prepareExternalUrl(this.location.path());
       if(titlee.charAt(0) === '#'){
@@ -151,5 +153,25 @@ export class NavbarComponent implements OnInit {
           }
       }
       return 'Dashboard';
+    }
+
+
+
+
+    logout(){
+      this.userService.logoutServer()
+			.subscribe(
+				(user) => {
+					if (user != null) {
+						this.userService.logoutClient();
+					}
+					
+				},
+				(error) => {
+          console.error(error);
+          this.userService.logoutClient();
+				}
+			);
+
     }
 }
